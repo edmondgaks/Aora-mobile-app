@@ -14,10 +14,10 @@ const SignIn = () => {
         password: "",
     });
     const submit = async () => {
-        if (form.email === "" || form.password === "") {
-            Alert.alert("Error", "Please fill in all fields");
-        }
-        setSubmitting(true);
+        // if (form.email === "" || form.password === "") {
+        //     Alert.alert("Error", "Please fill in all fields");
+        // }
+        // setSubmitting(true);
     }
     return (
         <SafeAreaView className="bg-[#161622] h-full">

@@ -14,11 +14,11 @@ const SignUp = () => {
         password: "",
     });
     const submit = async () => {
-        if (form.username === "" || form.email === "" || form.password === "") {
-          Alert.alert("Error", "Please fill in all fields");
-        }
+        // if (form.username === "" || form.email === "" || form.password === "") {
+        //   Alert.alert("Error", "Please fill in all fields");
+        // }
     
-        setSubmitting(true);
+        // setSubmitting(true);
     }
 
   return (
