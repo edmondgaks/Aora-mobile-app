@@ -5,6 +5,7 @@ import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 import { images } from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
+import { createUser } from "../../lib/appwrite";
 
 
 const SignIn = () => {
@@ -14,10 +15,7 @@ const SignIn = () => {
         password: "",
     });
     const submit = async () => {
-        // if (form.email === "" || form.password === "") {
-        //     Alert.alert("Error", "Please fill in all fields");
-        // }
-        // setSubmitting(true);
+        
     }
     return (
         <SafeAreaView className="bg-[#161622] h-full">
