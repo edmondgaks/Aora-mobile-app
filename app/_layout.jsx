@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Stack, SplashScreen } from 'expo-router';
+import GlobalProvider from "../context/GlobalProvider";
 
 
 SplashScreen.preventAutoHideAsync();
@@ -26,14 +27,18 @@ const RootLayout = () => {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded, error]);
+  if (!fontsLoaded && !error) return null;
+
 
   return (
-    <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false}} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false}} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false}} />
-        {/* <Stack.Screen name="/search" options={{ headerShown: false}} /> */}
-    </Stack>
+    <GlobalProvider>
+      <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false}} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false}} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false}} />
+          {/* <Stack.Screen name="/search" options={{ headerShown: false}} /> */}
+      </Stack>
+    </GlobalProvider>
   )
 }
 

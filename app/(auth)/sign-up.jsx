@@ -5,16 +5,28 @@ import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 import { images } from "../../constants";
 import  CustomButton  from "../../components/CustomButton";
 import FormField  from "../../components/FormField";
+import { createUser } from "../../lib/appwrite";
 
 const SignUp = () => {
-    const [isSubmitting, setSubmitting] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [form, setForm] = useState({
         username: "",
         email: "",
         password: "",
     });
     const submit = async () => {
-      createUser();
+      if(!form.email || !form.password || !form.username) {
+        Alert.alert('Error', 'Please fill in all fields')
+      }
+      setIsSubmitting(true)
+      try {
+        const result = await createUser(form.username, form.email, form.password);
+      } catch (error) {
+        Alert.alert('Error', error)
+      } finally {
+        setIsSubmitting(false)
+      }
+      router.replace("/home")
     }
 
   return (
